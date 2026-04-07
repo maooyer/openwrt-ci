@@ -122,7 +122,7 @@ if [ -f "$SINGBOX_MAKEFILE" ]; then
 	sed -i 's|PKG_VERSION:=.*|PKG_VERSION:=1.13.5-reF1nd|' "$SINGBOX_MAKEFILE"
 
 	# 替换hash为占位符（需手动填写正确值）
-	sed -i 's|PKG_HASH:=.*|PKG_HASH:=9b3cfb256641a50d94436b4ff0b88067e80a17ea|' "$SINGBOX_MAKEFILE"
+	sed -i 's|PKG_HASH:=.*|PKG_HASH:=6572e823a9e96855f810ef48ef15e8fafe3bef820836d06232f032288c04814f|' "$SINGBOX_MAKEFILE"
 
 	echo "sing-box source has been changed to reF1nd (v1.13.5-reF1nd)!"
 else
