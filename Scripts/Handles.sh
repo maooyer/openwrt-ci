@@ -109,3 +109,22 @@ if [ -d *"luci-app-netspeedtest"* ]; then
 
 	cd $PKG_PATH && echo "netspeedtest has been fixed!"
 fi
+
+#修改sing-box源码仓库为reF1nd并更新版本
+SINGBOX_MAKEFILE=$(find ../feeds/packages/ -maxdepth 4 -type f -wholename "*/sing-box/Makefile" 2>/dev/null)
+if [ -f "$SINGBOX_MAKEFILE" ]; then
+	echo " "
+
+	# 替换源码仓库地址
+	sed -i 's|codeload.github.com/SagerNet/sing-box|codeload.github.com/reF1nd/sing-box|g' "$SINGBOX_MAKEFILE"
+
+	# 替换版本号
+	sed -i 's|PKG_VERSION:=.*|PKG_VERSION:=1.13.5-reF1nd|' "$SINGBOX_MAKEFILE"
+
+	# 替换hash为占位符（需手动填写正确值）
+	sed -i 's|PKG_HASH:=.*|PKG_HASH:=9b3cfb256641a50d94436b4ff0b88067e80a17ea|' "$SINGBOX_MAKEFILE"
+
+	echo "sing-box source has been changed to reF1nd (v1.13.5-reF1nd)!"
+else
+	echo "sing-box Makefile not found, skipping..."
+fi
