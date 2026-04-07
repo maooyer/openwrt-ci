@@ -116,7 +116,7 @@ if [ -f "$SINGBOX_MAKEFILE" ]; then
 	echo " "
 
 	# 替换源码仓库地址
-	sed -i 's|codeload.github.com/SagerNet/sing-box|codeload.github.com/reF1nd/sing-box|g' "$SINGBOX_MAKEFILE"
+	sed -i 's|codeload.github.com/SagerNet/sing-box|codeload.github.com/reF1nd/sing-box/refs/tags|g' "$SINGBOX_MAKEFILE"
 
 	# 替换版本号
 	sed -i 's|PKG_VERSION:=.*|PKG_VERSION:=1.13.5-reF1nd|' "$SINGBOX_MAKEFILE"
