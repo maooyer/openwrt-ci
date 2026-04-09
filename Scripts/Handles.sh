@@ -110,21 +110,21 @@ if [ -d *"luci-app-netspeedtest"* ]; then
 	cd $PKG_PATH && echo "netspeedtest has been fixed!"
 fi
 
-#修改sing-box源码仓库为reF1nd并更新版本
-SINGBOX_MAKEFILE=$(find ../feeds/packages/ -maxdepth 4 -type f -wholename "*/sing-box/Makefile" 2>/dev/null)
-if [ -f "$SINGBOX_MAKEFILE" ]; then
-	echo " "
+# #修改sing-box源码仓库为reF1nd并更新版本
+# SINGBOX_MAKEFILE=$(find ../feeds/packages/ -maxdepth 4 -type f -wholename "*/sing-box/Makefile" 2>/dev/null)
+# if [ -f "$SINGBOX_MAKEFILE" ]; then
+# 	echo " "
 
-	# 替换源码仓库地址
-	sed -i 's|codeload.github.com/SagerNet/sing-box/tar.gz|codeload.github.com/reF1nd/sing-box/tar.gz/refs/tags|g' "$SINGBOX_MAKEFILE"
+# 	# 替换源码仓库地址
+# 	sed -i 's|codeload.github.com/SagerNet/sing-box/tar.gz|codeload.github.com/reF1nd/sing-box/tar.gz/refs/tags|g' "$SINGBOX_MAKEFILE"
 
-	# 替换版本号
-	sed -i 's|PKG_VERSION:=.*|PKG_VERSION:=1.13.5-reF1nd|' "$SINGBOX_MAKEFILE"
+# 	# 替换版本号
+# 	sed -i 's|PKG_VERSION:=.*|PKG_VERSION:=1.13.5|' "$SINGBOX_MAKEFILE"
 
-	# 替换hash为占位符（需手动填写正确值）
-	sed -i 's|PKG_HASH:=.*|PKG_HASH:=6572e823a9e96855f810ef48ef15e8fafe3bef820836d06232f032288c04814f|' "$SINGBOX_MAKEFILE"
+# 	# 替换hash为占位符（需手动填写正确值）
+# 	sed -i 's|PKG_HASH:=.*|PKG_HASH:=6572e823a9e96855f810ef48ef15e8fafe3bef820836d06232f032288c04814f|' "$SINGBOX_MAKEFILE"
 
-	echo "sing-box source has been changed to reF1nd (v1.13.5-reF1nd)!"
-else
-	echo "sing-box Makefile not found, skipping..."
-fi
+# 	echo "sing-box source has been changed to reF1nd (v1.13.5)!"
+# else
+# 	echo "sing-box Makefile not found, skipping..."
+# fi
